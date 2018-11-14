@@ -1,1 +1,2 @@
-Online Project Management
+# Online Project Management
+[![Maintainability](https://api.codeclimate.com/v1/badges/e931bb3b29f4050a48f4/maintainability)](https://codeclimate.com/github/aleksey-ilin/table/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/e931bb3b29f4050a48f4/test_coverage)](https://codeclimate.com/github/aleksey-ilin/table/test_coverage)
