@@ -1,7 +1,7 @@
 {
   "name": "table",
   "version": "0.0.0",
-  "description": "",
+  "description": "Online Project Management",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,7 +15,7 @@
   "bugs": {
     "url": "https://github.com/aleksey-ilin/table/issues"
   },
-  "homepage": "https://github.com/aleksey-ilin/table#readme",
+  "homepage": "http://table.surge.sh/",
   "devDependencies": {
     "@babel/cli": "^7.1.5",
     "@babel/core": "^7.1.6",
