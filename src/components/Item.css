@@ -1,0 +1,25 @@
+.thead {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  background-color: #222;
+  color: #fff;
+}
+.num {
+  width: 100px;
+}
+.task {
+  width: 300px;
+}
+.plan {
+  width: 100px;
+}
+.fact {
+  width: 100px;
+}
+.percent {
+  width: 100px;
+}
+.forecast {
+  width: 100px;
+}
