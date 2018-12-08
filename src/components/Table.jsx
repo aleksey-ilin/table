@@ -1,19 +1,16 @@
 import React from 'react';
 import './Table.css';
-import Item from './Item';
+import Tasks from '../containers/Tasks';
 
-export default class Table extends React.Component {
-  state = { tasks: [] };
-
-  addTask = () => {
-    const { tasks } = this.state;
-    // console.log(tasks);
-    tasks.length === 0 ? this.setState({ tasks: [1] }) : this.setState({ tasks: [...tasks, tasks.length + 1] });
-    // console.log(tasks);
-  };
+  export default class Table extends React.Component {
+  addTask = (e) => {
+    e.preventDefault();
+    const { newTaskText, addTask } = this.props;
+    addTask({ text: newTaskText });
+  }
 
   render() {
-    const { tasks } = this.state;
+    console.log(this.props);
     return (
       <div className="table">
         <div className="thead">
@@ -27,7 +24,7 @@ export default class Table extends React.Component {
           <div className="percent">%</div>
           <div className="forecast">Forecast</div>
         </div>
-        {tasks.map(task => <Item>{task}</Item>)}
+        <Tasks />
       </div>
     );
   }

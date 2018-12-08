@@ -6,8 +6,6 @@ import reducers from './reducers';
 import './index.css';
 import App from './components/App';
 
-// ReactDOM.render(<App />, document.getElementById('root'));
-
 /* eslint-disable no-underscore-dangle */
 const store = createStore(
   reducers,

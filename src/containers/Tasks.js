@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Component from '../components/Item';
+import Component from '../components/Tasks';
 import * as actionCreators from '../actions';
 import { tasksSelector } from '../selectors';
 

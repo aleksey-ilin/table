@@ -3,7 +3,7 @@ import './App.css';
 import Container from 'react-bootstrap/lib/Container';
 import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
-import Table from './Table';
+import Table from '../containers/Table';
 
 const App = () => (
   <div className="App">
