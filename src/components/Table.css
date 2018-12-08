@@ -1,12 +1,11 @@
 .thead {
   display: flex;
-  justify-content: left;
   margin: auto;
   margin-top: 20px;
   background-color: #333;
   color: #fff;
-  border: 1px solid #fff;
   width: 1000px;
+  opacity: 0.9;
 }
 .thead > div {
   border: 1px solid gray;

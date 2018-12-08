@@ -11,11 +11,13 @@
 
 .sidebar {
   height: 85vh;
-  background-color: #f7f7f7;
+  background-color: gray;
+  color: #fff;
+  border-right: 1px solid black;
 }
 
 .content {
-  background-color: #fff;
+  background-color: gray;
 }
 
 .footer {

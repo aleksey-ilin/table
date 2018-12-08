@@ -1,25 +1,10 @@
-.thead {
+.item {
   display: flex;
-  justify-content: center;
-  margin: 0;
+  margin: auto;
   background-color: #222;
   color: #fff;
+  width: 1000px;
 }
-.num {
-  width: 100px;
-}
-.task {
-  width: 300px;
-}
-.plan {
-  width: 100px;
-}
-.fact {
-  width: 100px;
-}
-.percent {
-  width: 100px;
-}
-.forecast {
-  width: 100px;
+.item > div {
+  border: 1px solid gray;
 }
