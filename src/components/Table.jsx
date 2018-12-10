@@ -1,8 +1,9 @@
 import React from 'react';
 import './Table.css';
+import PropTypes from 'prop-types';
 import Tasks from '../containers/Tasks';
 
-  export default class Table extends React.Component {
+export default class Table extends React.Component {
   addTask = (e) => {
     e.preventDefault();
     const { newTaskText, addTask } = this.props;
@@ -29,3 +30,8 @@ import Tasks from '../containers/Tasks';
     );
   }
 }
+
+Table.propTypes = {
+  newTaskText: PropTypes.string,
+  addTask: PropTypes.func,
+};

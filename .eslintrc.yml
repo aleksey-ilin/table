@@ -1,0 +1,22 @@
+---
+
+# https://eslint.org/docs/user-guide/configuring#specifying-environments
+env:
+  node: true
+
+# https://github.com/babel/babel-eslint
+parser: babel-eslint
+
+extends:
+  - 'airbnb-base'
+  - 'plugin:react/recommended'
+
+rules:
+  no-console: 0
+
+settings:
+  import/resolver:
+    node:
+      extensions:
+      - ".js"
+      - ".jsx"

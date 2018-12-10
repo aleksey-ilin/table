@@ -1,11 +1,12 @@
 import React from 'react';
 import './Tasks.css';
+import PropTypes from 'prop-types';
 
 export default class Tasks extends React.Component {
   removeTask = id => () => {
     this.props.removeTask({ id });
   }
-  
+
   render() {
     console.log(this.props);
     const { tasks } = this.props;
@@ -19,7 +20,7 @@ export default class Tasks extends React.Component {
             <button className="newTask" onClick={this.removeTask(task.id)}>-</button>
             <div className="num">{ task.id }</div>
           </div>
-          <div className="task">Task { /*children*/ }</div>
+          <div className="task">Task { /* children */ }</div>
           <div className="plan">10</div>
           <div className="fact">10</div>
           <div className="percent">100 %</div>
@@ -28,4 +29,9 @@ export default class Tasks extends React.Component {
       ))
     );
   }
+}
+
+Tasks.propTypes = {
+  tasks: PropTypes.array,
+  removeTask: PropTypes.func,
 };
