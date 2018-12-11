@@ -1,0 +1,21 @@
+.item {
+  display: flex;
+  margin: auto;
+  background-color: #222;
+  color: #fff;
+  width: 1000px;
+}
+.item > div {
+  border: 1px solid gray;
+}
+.item > .task {
+  text-align: left;
+  padding-left: 5px;
+}
+.cell-editing {
+  background-color: #234;
+}
+[contentEditable]:empty:not(:focus):before{
+  content:attr(data-text);
+  color:gray;
+}

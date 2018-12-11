@@ -11,9 +11,8 @@
 
 .sidebar {
   height: 85vh;
-  background-color: gray;
+  background-color: #333;
   color: #fff;
-  border-right: 1px solid black;
 }
 
 .content {

@@ -1,7 +1,7 @@
 import React from 'react';
 import './Table.css';
 import PropTypes from 'prop-types';
-import Tasks from '../containers/Tasks';
+import Task from '../containers/Tasks';
 
 export default class Table extends React.Component {
   addTask = (e) => {
@@ -11,7 +11,8 @@ export default class Table extends React.Component {
   }
 
   render() {
-    console.log(this.props);
+    // console.log(this.props.tasks);
+    const { tasks } = this.props;
     return (
       <div className="table">
         <div className="thead">
@@ -19,13 +20,13 @@ export default class Table extends React.Component {
             <button className="newTask" onClick={this.addTask}>+</button>
             <div className="num">№</div>
           </div>
-          <div className="task">Task</div>
+          <div className="task">Tasks</div>
           <div className="plan">Plan</div>
           <div className="fact">Fact</div>
           <div className="percent">%</div>
           <div className="forecast">Forecast</div>
         </div>
-        <Tasks />
+        {tasks.length === 0 ? null : tasks.map(task => <Task task={task} key={task.id}/>)}
       </div>
     );
   }
@@ -34,4 +35,5 @@ export default class Table extends React.Component {
 Table.propTypes = {
   newTaskText: PropTypes.string,
   addTask: PropTypes.func,
+  tasks: PropTypes.array,
 };
