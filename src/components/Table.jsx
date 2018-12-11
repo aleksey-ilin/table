@@ -1,7 +1,7 @@
 import React from 'react';
 import './Table.css';
 import PropTypes from 'prop-types';
-import Task from '../containers/Tasks';
+import Task from '../containers/Task';
 
 export default class Table extends React.Component {
   addTask = (e) => {
@@ -11,7 +11,7 @@ export default class Table extends React.Component {
   }
 
   render() {
-    // console.log(this.props.tasks);
+    console.log(this.props.tasks);
     const { tasks } = this.props;
     return (
       <div className="table">

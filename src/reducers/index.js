@@ -16,18 +16,21 @@ const tasks = handleActions({
     const updatedTask = { ...task, state: newState };
     return { ...state, [task.id]: updatedTask };
   },
+  [actions.updateTaskText](state, { payload: { id, text } }) {
+    const task = state[id];
+    return { ...state, [task.id]: { ...task, text } };
+  },
 }, {});
 
-const newTaskText = handleActions({
+/* const newTaskText = handleActions({
   [actions.addTask]() {
     return '';
   },
   [actions.updateNewTaskText](state, { payload: { text } }) {
     return text;
   },
-}, '');
+}, ''); */
 
 export default combineReducers({
   tasks,
-  newTaskText,
 });

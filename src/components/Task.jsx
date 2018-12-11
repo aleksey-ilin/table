@@ -8,22 +8,6 @@ import cn from 'classnames';
 export default class Tasks extends React.Component {
   state = { editing_state: false };
 
-  removeTask = id => () => {
-    this.props.removeTask({ id });
-  }
-
-  changeStateCell = () => {
-    this.setState({ editing_state: true });
-  }
-
-  editTask = (e) => {
-    // console.log(e.keyCode);
-    if (e.keyCode === 13) {
-      this.setState({ editing_state: false });
-      e.target.blur();
-    }
-  }
-
   componentWillUnmount() {
     document.removeEventListener('click', this.handleClickOutside, false);
   }
@@ -38,6 +22,25 @@ export default class Tasks extends React.Component {
     }
   }
 
+  changeStateCell = () => {
+    this.setState({ editing_state: true });
+  }
+
+  editTaskText = id => (e) => {
+    console.log(e.target.innerHTML);
+    const { updateTaskText } = this.props;
+    updateTaskText({ id, text: e.target.innerHTML });
+    const enterCode = 13;
+    if (e.keyCode === enterCode) {
+      this.setState({ editing_state: false });
+      e.target.blur();
+    }
+  }
+
+  removeTask = id => () => {
+    this.props.removeTask({ id });
+  }
+
   render() {
     const { task } = this.props;
     const cellClass = cn({
@@ -50,7 +53,14 @@ export default class Tasks extends React.Component {
           <button className="newTask" onClick={this.removeTask(task.id)}>-</button>
           <div className="num">{task.id}</div>
         </div>
-        <div className={cellClass} contentEditable={this.state.editing_state} data-text="New task" onKeyDown={this.editTask} onClick={this.changeStateCell}></div>
+        <div
+          className={cellClass}
+          contentEditable="true"
+          data-text="New task"
+          onKeyDown={this.editTaskText(task.id)}
+          onKeyUp={this.editTaskText(task.id)}
+          onClick={this.changeStateCell}>
+        </div>
         <div className="plan">10</div>
         <div className="fact">10</div>
         <div className="percent">100 %</div>
@@ -63,4 +73,5 @@ export default class Tasks extends React.Component {
 Tasks.propTypes = {
   task: PropTypes.object,
   removeTask: PropTypes.func,
+  updateTaskText: PropTypes.func,
 };
