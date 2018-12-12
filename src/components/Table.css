@@ -4,8 +4,9 @@
   margin-top: 20px;
   background-color: #333;
   color: #fff;
-  width: 1000px;
+  width: 1200px;
   opacity: 0.9;
+  font-size: 14px;
 }
 .thead > div {
   border: 1px solid gray;
@@ -43,6 +44,6 @@
 .percent {
   width: 10%;
 }
-.forecast {
+.necessary {
   width: 10%;
 }

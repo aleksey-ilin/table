@@ -3,7 +3,7 @@
   margin: auto;
   background-color: #222;
   color: #fff;
-  width: 1000px;
+  width: 1200px;
 }
 .item > div {
   border: 1px solid gray;
@@ -38,4 +38,20 @@
 .item > .fact:focus {
   outline: none;
   background-color: #234;
+}
+.item > .percent {
+  background-color: #222;
+  color: #fff;
+  border: 1px solid gray;
+  text-align: center;
+}
+.item > .percent:focus {
+  outline: none;
+  background-color: #234;
+}
+.item > .necessary {
+  background-color: #222;
+  color: #fff;
+  border: 1px solid gray;
+  text-align: center;
 }

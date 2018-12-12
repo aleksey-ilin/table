@@ -7,7 +7,12 @@ export default class Table extends React.Component {
   addTask = (e) => {
     e.preventDefault();
     const { newTaskText, addTask } = this.props;
-    addTask({ text: newTaskText, plan: 0, fact: 0 });
+    addTask({
+      text: newTaskText,
+      plan: 0,
+      fact: 0,
+      percent: 0,
+    });
   }
 
   render() {
@@ -21,10 +26,10 @@ export default class Table extends React.Component {
             <div className="num">№</div>
           </div>
           <div className="task">Tasks</div>
-          <div className="plan">Plan</div>
-          <div className="fact">Fact</div>
+          <div className="plan">Plan, days</div>
+          <div className="fact">Fact, days</div>
           <div className="percent">%</div>
-          <div className="forecast">Forecast</div>
+          <div className="necessary">Necessary, days</div>
         </div>
         {tasks.length === 0 ? null : tasks.map(task => <Task task={task} key={task.id}/>)}
       </div>
