@@ -22,6 +22,15 @@ export default class Tasks extends React.Component {
     }
   }
 
+  editFact = id => (e) => {
+    const { updateFact } = this.props;
+    updateFact({ id, fact: e.target.value });
+    const enterCode = 13;
+    if (e.keyCode === enterCode) {
+      e.target.blur();
+    }
+  }
+
   removeTask = id => () => {
     this.props.removeTask({ id });
   }
@@ -36,7 +45,7 @@ export default class Tasks extends React.Component {
         </div>
         <input className="task" placeholder="New task" onKeyUp={this.editTaskText(task.id)}></input>
         <input className="plan" placeholder="0" onKeyUp={this.editPlan(task.id)}></input>
-        <div className="fact">10</div>
+        <input className="fact" placeholder="0" onKeyUp={this.editFact(task.id)}></input>
         <div className="percent">100 %</div>
         <div className="forecast">0</div>
       </div>
@@ -49,4 +58,5 @@ Tasks.propTypes = {
   removeTask: PropTypes.func,
   updateTaskText: PropTypes.func,
   updatePlan: PropTypes.func,
+  updateFact: PropTypes.func,
 };

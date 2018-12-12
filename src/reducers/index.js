@@ -24,6 +24,10 @@ const tasks = handleActions({
     const task = state[id];
     return { ...state, [task.id]: { ...task, plan } };
   },
+  [actions.updateFact](state, { payload: { id, fact } }) {
+    const task = state[id];
+    return { ...state, [task.id]: { ...task, fact } };
+  },
 }, {});
 
 export default combineReducers({
