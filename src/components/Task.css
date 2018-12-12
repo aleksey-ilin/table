@@ -9,13 +9,13 @@
   border: 1px solid gray;
 }
 .item > .task {
+  background-color: #222;
+  color: #fff;
+  border: 1px solid gray;
   text-align: left;
   padding-left: 5px;
 }
-.cell-editing {
+.item > .task:focus {
+  outline: none;
   background-color: #234;
-}
-[contentEditable]:empty:not(:focus):before{
-  content:attr(data-text);
-  color:gray;
 }
