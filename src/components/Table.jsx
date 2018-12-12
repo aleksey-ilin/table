@@ -7,7 +7,7 @@ export default class Table extends React.Component {
   addTask = (e) => {
     e.preventDefault();
     const { newTaskText, addTask } = this.props;
-    addTask({ text: newTaskText });
+    addTask({ text: newTaskText, plan: 0 });
   }
 
   render() {
