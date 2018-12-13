@@ -6,19 +6,22 @@
   color: #fff;
   width: 1200px;
   opacity: 0.9;
-  font-size: 14px;
 }
+
 .thead > div {
   border: 1px solid gray;
 }
+
 .numTask {
   display: flex;
   width: 10%;
   margin: 0;
 }
+
 .num {
   width: 40%;
 }
+
 .newTask {
   width: 50%;
   padding: 0;
@@ -27,23 +30,29 @@
   background-color: transparent;
   cursor: pointer;
 }
+
 .newTask, 
 .newTask:active, 
 .newTask:focus {
     outline: none;
 }
+
 .task {
   width: 50%;
 }
+
 .plan {
   width: 10%;
 }
+
 .fact {
   width: 10%;
 }
+
 .percent {
   width: 10%;
 }
+
 .necessary {
   width: 10%;
 }

@@ -4,54 +4,44 @@ import PropTypes from 'prop-types';
 import { round } from 'lodash';
 
 export default class Tasks extends React.Component {
-  editTaskText = id => (e) => {
-    // console.log(e.target.value);
-    const { updateTaskText } = this.props;
-    updateTaskText({ id, text: e.target.value });
+  handleClickEnter = (e) => {
     const enterCode = 13;
     if (e.keyCode === enterCode) {
       e.target.blur();
     }
+  }
+
+  editTaskText = id => (e) => {
+    const { updateTaskText } = this.props;
+    updateTaskText({ id, text: e.target.value });
+    this.handleClickEnter(e);
   }
 
   editPlan = id => (e) => {
     const { updatePlan } = this.props;
     updatePlan({ id, plan: e.target.value });
-    const enterCode = 13;
-    if (e.keyCode === enterCode) {
-      e.target.blur();
-    }
+    this.handleClickEnter(e);
   }
 
   editFact = id => (e) => {
     const { updateFact } = this.props;
     updateFact({ id, fact: e.target.value });
-    const enterCode = 13;
-    if (e.keyCode === enterCode) {
-      e.target.blur();
-    }
+    this.handleClickEnter(e);
   }
 
   editPercent = id => (e) => {
     const { updatePercent } = this.props;
     updatePercent({ id, percent: e.target.value });
-    const enterCode = 13;
-    if (e.keyCode === enterCode) {
-      e.target.blur();
-    }
+    this.handleClickEnter(e);
   }
 
-  removeTask = id => () => {
-    this.props.removeTask({ id });
-  }
+  removeTask = id => () => this.props.removeTask({ id });
 
   render() {
     const { task } = this.props;
     const { plan, fact, percent } = task;
-    const cond = plan === 0 || fact === 0 || percent === 0;
-    console.log(plan);
-    const necessary = cond ? null : round(plan - 100 * fact / percent, 1);
-    console.log(task);
+    const cond = (plan === 0 || fact === 0 || percent === 0 || plan === '' || fact === '' || percent === '');
+    const necessary = cond ? null : round(((100 * fact / percent) - fact), 1);
     return (
       <div className="item">
         <div className="numTask">
@@ -59,9 +49,9 @@ export default class Tasks extends React.Component {
           <div className="num">{task.id}</div>
         </div>
         <input className="task" placeholder="New task" onKeyUp={this.editTaskText(task.id)}></input>
-        <input className="plan" placeholder="0" onKeyUp={this.editPlan(task.id)}></input>
-        <input className="fact" placeholder="0" onKeyUp={this.editFact(task.id)}></input>
-        <input className="percent" placeholder="0" onKeyUp={this.editPercent(task.id)}></input>
+        <input className="plan" placeholder="0" type="number" onKeyUp={this.editPlan(task.id)}></input>
+        <input className="fact" placeholder="0" type="number" onKeyUp={this.editFact(task.id)}></input>
+        <input className="percent" placeholder="0" type="number" onKeyUp={this.editPercent(task.id)}></input>
         <div className="necessary">{ necessary }</div>
       </div>
     );

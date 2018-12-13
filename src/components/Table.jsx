@@ -26,10 +26,10 @@ export default class Table extends React.Component {
             <div className="num">№</div>
           </div>
           <div className="task">Tasks</div>
-          <div className="plan">Plan, days</div>
-          <div className="fact">Fact, days</div>
-          <div className="percent">%</div>
-          <div className="necessary">Necessary, days</div>
+          <div className="plan">Plan, h</div>
+          <div className="fact">Fact, h</div>
+          <div className="percent">Done, %</div>
+          <div className="necessary">Necessary, h</div>
         </div>
         {tasks.length === 0 ? null : tasks.map(task => <Task task={task} key={task.id}/>)}
       </div>

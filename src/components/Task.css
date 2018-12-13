@@ -1,3 +1,12 @@
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
 .item {
   display: flex;
   margin: auto;
@@ -5,52 +14,29 @@
   color: #fff;
   width: 1200px;
 }
+
 .item > div {
   border: 1px solid gray;
 }
-.item > .task {
+
+.item > input {
   background-color: #222;
   color: #fff;
   border: 1px solid gray;
+  text-align: center;
+}
+
+.item > input:focus {
+  outline: none;
+  background-color: #234;
+}
+
+.item > .task {
   text-align: left;
   padding-left: 5px;
 }
-.item > .task:focus {
-  outline: none;
-  background-color: #234;
-}
-.item > .plan {
-  background-color: #222;
-  color: #fff;
-  border: 1px solid gray;
-  text-align: center;
-}
-.item > .plan:focus {
-  outline: none;
-  background-color: #234;
-}
-.item > .fact {
-  background-color: #222;
-  color: #fff;
-  border: 1px solid gray;
-  text-align: center;
-}
-.item > .fact:focus {
-  outline: none;
-  background-color: #234;
-}
-.item > .percent {
-  background-color: #222;
-  color: #fff;
-  border: 1px solid gray;
-  text-align: center;
-}
-.item > .percent:focus {
-  outline: none;
-  background-color: #234;
-}
+
 .item > .necessary {
-  background-color: #222;
   color: #fff;
   border: 1px solid gray;
   text-align: center;
