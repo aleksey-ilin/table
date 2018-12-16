@@ -3,9 +3,11 @@ import './Task.css';
 import PropTypes from 'prop-types';
 import { round } from 'lodash';
 import cn from 'classnames';
+import Modal from 'react-bootstrap/lib/Modal';
+import Button from 'react-bootstrap/lib/Button';
 
 export default class Tasks extends React.Component {
-  state = { timerButton: 'stop' };
+  state = { timerButton: 'stop', showModal: false };
 
   handleClickEnter = (e) => {
     const enterCode = 13;
@@ -40,19 +42,47 @@ export default class Tasks extends React.Component {
 
   removeTask = id => () => this.props.removeTask({ id });
 
-  changeTimerState = (e) => {
+  changeTimerState = id => (e) => {
     e.preventDefault();
-    const { timerButton } = this.state;
-    const newTimerButton = timerButton === 'stop' ? 'start' : 'stop';
-    this.setState({ timerButton: newTimerButton });
+    const { updateRunnigTask, runingTask } = this.props;
+    if (Number(runingTask) === -1) {
+      updateRunnigTask({ id });
+      const { timerButton } = this.state;
+      const newTimerButton = timerButton === 'stop' ? 'start' : 'stop';
+      this.setState({ timerButton: newTimerButton });
+    } else if (runingTask === id) {
+      updateRunnigTask({ id: '-1' });
+      const { timerButton } = this.state;
+      const newTimerButton = timerButton === 'stop' ? 'start' : 'stop';
+      this.setState({ timerButton: newTimerButton });
+    } else {
+      this.setState({ showModal: true });
+    }
+  }
+
+  handleCloseModal = () => this.setState({ showModal: false });
+
+  renderModal() {
+    const { showModal } = this.state;
+    return (
+      <Modal show={showModal} onHide={this.handleCloseModal}>
+      <Modal.Header>
+        <Modal.Title>Another task started</Modal.Title>
+      </Modal.Header>
+      <Modal.Footer>
+        <Button variant="secondary" onClick={this.handleCloseModal}>
+          Close
+        </Button>
+      </Modal.Footer>
+    </Modal>
+    );
   }
 
   render() {
-    // console.log(this.state);
     const { task } = this.props;
     const { plan, fact, percent } = task;
     const { timerButton } = this.state;
-    const cond = (plan === 0 || fact === 0 || percent === 0 || plan === '' || fact === '' || percent === '');
+    const cond = (plan === '' || fact === '' || percent === '');
     const necessary = cond ? null : round(((100 * fact / percent) - fact), 1);
     const timerButtonName = timerButton === 'stop' ? 'Stop' : 'Start';
     const timerButtonClass = cn({
@@ -60,12 +90,13 @@ export default class Tasks extends React.Component {
     });
     return (
       <div className="item">
+        {this.renderModal()}
         <div className="numTask">
           <button className="newTask" onClick={this.removeTask(task.id)}>-</button>
           <div className="num">{task.id}</div>
         </div>
         <input className="task" placeholder="New task" onKeyUp={this.editTaskText(task.id)}></input>
-        <button className={timerButtonClass} onClick={this.changeTimerState}>
+        <button className={timerButtonClass} onClick={this.changeTimerState(task.id)}>
           { timerButtonName }
         </button>
         <input className="plan" placeholder="0" type="number" onKeyUp={this.editPlan(task.id)}></input>
@@ -84,4 +115,6 @@ Tasks.propTypes = {
   updatePlan: PropTypes.func,
   updateFact: PropTypes.func,
   updatePercent: PropTypes.func,
+  runingTask: PropTypes.string,
+  updateRunnigTask: PropTypes.func,
 };

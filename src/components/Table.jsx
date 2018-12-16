@@ -9,14 +9,13 @@ export default class Table extends React.Component {
     const { newTaskText, addTask } = this.props;
     addTask({
       text: newTaskText,
-      plan: 0,
-      fact: 0,
-      percent: 0,
+      plan: '',
+      fact: '',
+      percent: '',
     });
   }
 
   render() {
-    console.log(this.props.tasks);
     const { tasks } = this.props;
     return (
       <div className="table">

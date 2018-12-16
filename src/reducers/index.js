@@ -34,6 +34,13 @@ const tasks = handleActions({
   },
 }, {});
 
+const runingTask = handleActions({
+  [actions.updateRunnigTask](state, { payload: { id } }) {
+    return id;
+  },
+}, '-1');
+
 export default combineReducers({
   tasks,
+  runingTask,
 });
