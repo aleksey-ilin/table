@@ -34,7 +34,7 @@ input::-webkit-inner-spin-button {
 .item > .task {
   text-align: left;
   padding-left: 5px;
-  width: 45%;
+  width: 50%;
 }
 
 .item > .timerButton {
@@ -47,10 +47,20 @@ input::-webkit-inner-spin-button {
 
 .item > .timerButton.stop {
   background-color: maroon;
+  transition-duration: 0.2s;
+}
+
+.item > .timerButton.stop:after {
+  content:'Stop'; 
 }
 
 .item > .timerButton.start {
   background-color: seagreen;
+  transition-duration: 0.2s;
+}
+
+.item > .timerButton.start:after {
+  content:'Start';
 }
 
 .timerButton, 

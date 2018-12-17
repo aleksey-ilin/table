@@ -40,19 +40,18 @@ export default class Tasks extends React.Component {
     this.handleClickEnter(e);
   }
 
-  removeTask = id => () => this.props.removeTask({ id });
+  removeTask = id => () => {
+    this.props.updateRunnigTask({ id: '-1' });
+    this.props.removeTask({ id });
+  }
 
   changeTimerState = id => (e) => {
     e.preventDefault();
     const { updateRunnigTask, runingTask } = this.props;
-    if (Number(runingTask) === -1) {
-      updateRunnigTask({ id });
-      const { timerButton } = this.state;
-      const newTimerButton = timerButton === 'stop' ? 'start' : 'stop';
-      this.setState({ timerButton: newTimerButton });
-    } else if (runingTask === id) {
-      updateRunnigTask({ id: '-1' });
-      const { timerButton } = this.state;
+    const { timerButton } = this.state;
+    if (runingTask === '-1' || runingTask === id) {
+      const newId = runingTask === '-1' ? id : '-1';
+      updateRunnigTask({ id: newId });
       const newTimerButton = timerButton === 'stop' ? 'start' : 'stop';
       this.setState({ timerButton: newTimerButton });
     } else {
@@ -65,7 +64,7 @@ export default class Tasks extends React.Component {
   renderModal() {
     const { showModal } = this.state;
     return (
-      <Modal show={showModal} onHide={this.handleCloseModal}>
+    <Modal show={showModal} onHide={this.handleCloseModal}>
       <Modal.Header>
         <Modal.Title>Another task started</Modal.Title>
       </Modal.Header>
@@ -84,7 +83,6 @@ export default class Tasks extends React.Component {
     const { timerButton } = this.state;
     const cond = (plan === '' || fact === '' || percent === '');
     const necessary = cond ? null : round(((100 * fact / percent) - fact), 1);
-    const timerButtonName = timerButton === 'stop' ? 'Stop' : 'Start';
     const timerButtonClass = cn({
       [`timerButton ${timerButton}`]: true,
     });
@@ -96,9 +94,7 @@ export default class Tasks extends React.Component {
           <div className="num">{task.id}</div>
         </div>
         <input className="task" placeholder="New task" onKeyUp={this.editTaskText(task.id)}></input>
-        <button className={timerButtonClass} onClick={this.changeTimerState(task.id)}>
-          { timerButtonName }
-        </button>
+        <button className={timerButtonClass} onClick={this.changeTimerState(task.id)}></button>
         <input className="plan" placeholder="0" type="number" onKeyUp={this.editPlan(task.id)}></input>
         <input className="fact" placeholder="0" type="number" onKeyUp={this.editFact(task.id)}></input>
         <input className="percent" placeholder="0" type="number" onKeyUp={this.editPercent(task.id)}></input>
