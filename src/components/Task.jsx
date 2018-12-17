@@ -9,44 +9,21 @@ import Button from 'react-bootstrap/lib/Button';
 export default class Tasks extends React.Component {
   state = { timerButton: 'stop', showModal: false };
 
-  handleClickEnter = (e) => {
+  editCell = (fn, property, id) => (e) => {
+    fn({ id, [property]: e.target.value });
     const enterCode = 13;
     if (e.keyCode === enterCode) {
       e.target.blur();
     }
   }
 
-  editTaskText = id => (e) => {
-    const { updateTaskText } = this.props;
-    updateTaskText({ id, text: e.target.value });
-    this.handleClickEnter(e);
-  }
-
-  editPlan = id => (e) => {
-    const { updatePlan } = this.props;
-    updatePlan({ id, plan: e.target.value });
-    this.handleClickEnter(e);
-  }
-
-  editFact = id => (e) => {
-    const { updateFact } = this.props;
-    updateFact({ id, fact: e.target.value });
-    this.handleClickEnter(e);
-  }
-
-  editPercent = id => (e) => {
-    const { updatePercent } = this.props;
-    updatePercent({ id, percent: e.target.value });
-    this.handleClickEnter(e);
-  }
-
   removeTask = id => () => {
-    this.props.updateRunnigTask({ id: '-1' });
-    this.props.removeTask({ id });
+    const { updateRunnigTask, removeTask } = this.props;
+    updateRunnigTask({ id: '-1' });
+    removeTask({ id });
   }
 
-  changeTimerState = id => (e) => {
-    e.preventDefault();
+  changeTimerState = id => () => {
     const { updateRunnigTask, runingTask } = this.props;
     const { timerButton } = this.state;
     if (runingTask === '-1' || runingTask === id) {
@@ -78,7 +55,13 @@ export default class Tasks extends React.Component {
   }
 
   render() {
-    const { task } = this.props;
+    const {
+      task,
+      updateTaskText,
+      updatePlan,
+      updateFact,
+      updatePercent,
+    } = this.props;
     const { plan, fact, percent } = task;
     const { timerButton } = this.state;
     const cond = (plan === '' || fact === '' || percent === '');
@@ -93,11 +76,11 @@ export default class Tasks extends React.Component {
           <button className="newTask" onClick={this.removeTask(task.id)}>-</button>
           <div className="num">{task.id}</div>
         </div>
-        <input className="task" placeholder="New task" onKeyUp={this.editTaskText(task.id)}></input>
+        <input className="task" placeholder="New task" onKeyUp={this.editCell(updateTaskText, 'text', task.id)}></input>
         <button className={timerButtonClass} onClick={this.changeTimerState(task.id)}></button>
-        <input className="plan" placeholder="0" type="number" onKeyUp={this.editPlan(task.id)}></input>
-        <input className="fact" placeholder="0" type="number" onKeyUp={this.editFact(task.id)}></input>
-        <input className="percent" placeholder="0" type="number" onKeyUp={this.editPercent(task.id)}></input>
+        <input className="plan" placeholder="0" type="number" onKeyUp={this.editCell(updatePlan, 'plan', task.id)}></input>
+        <input className="fact" placeholder="0" type="number" onKeyUp={this.editCell(updateFact, 'fact', task.id)}></input>
+        <input className="percent" placeholder="0" type="number" onKeyUp={this.editCell(updatePercent, 'percent', task.id)}></input>
         <div className="necessary">{ necessary }</div>
       </div>
     );
