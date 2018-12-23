@@ -7,10 +7,8 @@ import Modal from 'react-bootstrap/lib/Modal';
 import Button from 'react-bootstrap/lib/Button';
 import Timer from 'easytimer.js';
 
-const timer = new Timer();
-
 export default class Tasks extends React.Component {
-  state = { timerButton: 'stop', showModal: false };
+  state = { timerButton: 'stop', showModal: false, timer: new Timer() };
 
   editCell = (fn, property, id) => (e) => {
     fn({ id, [property]: e.target.value });
@@ -28,6 +26,7 @@ export default class Tasks extends React.Component {
 
   changeTimerState = id => () => {
     const { updateRunnigTask, runingTask, updateFact } = this.props;
+    const { timer } = this.state;
     timer.addEventListener('secondsUpdated', () => {
       updateFact({ id, fact: timer.getTimeValues().toString() });
     });
