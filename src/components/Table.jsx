@@ -26,7 +26,7 @@ export default class Table extends React.Component {
           </div>
           <div className="task">Tasks</div>
           <div className="plan">Plan, h</div>
-          <div className="fact">Fact, h</div>
+          <div className="fact">Fact</div>
           <div className="percent">Done, %</div>
           <div className="necessary">Necessary, h</div>
         </div>

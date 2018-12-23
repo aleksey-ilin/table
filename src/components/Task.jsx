@@ -5,6 +5,9 @@ import { round } from 'lodash';
 import cn from 'classnames';
 import Modal from 'react-bootstrap/lib/Modal';
 import Button from 'react-bootstrap/lib/Button';
+import Timer from 'easytimer.js';
+
+const timer = new Timer();
 
 export default class Tasks extends React.Component {
   state = { timerButton: 'stop', showModal: false };
@@ -24,13 +27,18 @@ export default class Tasks extends React.Component {
   }
 
   changeTimerState = id => () => {
-    const { updateRunnigTask, runingTask } = this.props;
-    const { timerButton } = this.state;
-    if (runingTask === '-1' || runingTask === id) {
-      const newId = runingTask === '-1' ? id : '-1';
-      updateRunnigTask({ id: newId });
-      const newTimerButton = timerButton === 'stop' ? 'start' : 'stop';
-      this.setState({ timerButton: newTimerButton });
+    const { updateRunnigTask, runingTask, updateFact } = this.props;
+    timer.addEventListener('secondsUpdated', () => {
+      updateFact({ id, fact: timer.getTimeValues().toString() });
+    });
+    if (runingTask === '-1') {
+      updateRunnigTask({ id });
+      this.setState({ timerButton: 'start' });
+      timer.start();
+    } else if (runingTask === id) {
+      updateRunnigTask({ id: '-1' });
+      this.setState({ timerButton: 'stop' });
+      timer.pause();
     } else {
       this.setState({ showModal: true });
     }
@@ -79,7 +87,7 @@ export default class Tasks extends React.Component {
         <input className="task" placeholder="New task" onKeyUp={this.editCell(updateTaskText, 'text', task.id)}></input>
         <button className={timerButtonClass} onClick={this.changeTimerState(task.id)}></button>
         <input className="plan" placeholder="0" type="number" onKeyUp={this.editCell(updatePlan, 'plan', task.id)}></input>
-        <input className="fact" placeholder="0" type="number" onKeyUp={this.editCell(updateFact, 'fact', task.id)}></input>
+        <div className="fact" placeholder="0" type="number" onKeyUp={this.editCell(updateFact, 'fact', task.id)}>{fact}</div>
         <input className="percent" placeholder="0" type="number" onKeyUp={this.editCell(updatePercent, 'percent', task.id)}></input>
         <div className="necessary">{ necessary }</div>
       </div>
