@@ -1,11 +1,11 @@
 import React from 'react';
 import './Task.css';
 import PropTypes from 'prop-types';
-import { round } from 'lodash';
 import cn from 'classnames';
 import Modal from 'react-bootstrap/lib/Modal';
 import Button from 'react-bootstrap/lib/Button';
 import Timer from 'easytimer.js';
+import { getNecessary } from '../utils';
 
 export default class Tasks extends React.Component {
   state = { timerButton: 'stop', showModal: false, timer: new Timer() };
@@ -20,6 +20,7 @@ export default class Tasks extends React.Component {
 
   removeTask = id => () => {
     const { updateRunnigTask, removeTask } = this.props;
+    this.state.timer.stop();
     updateRunnigTask({ id: '-1' });
     removeTask({ id });
   }
@@ -71,8 +72,8 @@ export default class Tasks extends React.Component {
     } = this.props;
     const { plan, fact, percent } = task;
     const { timerButton } = this.state;
-    const cond = (plan === '' || fact === '' || percent === '');
-    const necessary = cond ? null : round(((100 * fact / percent) - fact), 1);
+    const cond = (plan === '' || fact === '' || percent === '' || percent === '0');
+    const necessary = cond ? null : getNecessary(fact, percent);
     const timerButtonClass = cn({
       [`timerButton ${timerButton}`]: true,
     });
