@@ -69,11 +69,6 @@ input::-webkit-inner-spin-button {
     outline: none;
 }
 
-.item > .fact:empty:before {
-  content:attr(data-placeholder);
-  color:gray
-}
-
 .item > .necessary {
   color: #fff;
   border: 1px solid gray;

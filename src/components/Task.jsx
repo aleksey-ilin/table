@@ -71,8 +71,7 @@ export default class Tasks extends React.Component {
     } = this.props;
     const { fact, percent } = task;
     const { timerButton } = this.state;
-    const cond = (fact === '' || percent === '' || percent === '0');
-    const necessary = cond ? null : getNecessary(fact, percent);
+    const necessary = getNecessary(fact, percent);
     const timerButtonClass = cn({
       [`timerButton ${timerButton}`]: true,
     });
@@ -86,7 +85,7 @@ export default class Tasks extends React.Component {
         <input className="task" placeholder="New task" onKeyUp={this.editCell(updateTaskText, 'text', task.id)}></input>
         <button className={timerButtonClass} onClick={this.changeTimerState(task.id)}></button>
         <input className="plan" placeholder="0" type="number" onKeyUp={this.editCell(updatePlan, 'plan', task.id)}></input>
-        <div className="fact" data-placeholder="00:00:00">{fact}</div>
+        <div className="fact">{fact}</div>
         <input className="percent" placeholder="0" type="number" onKeyUp={this.editCell(updatePercent, 'percent', task.id)}></input>
         <div className="necessary">{ necessary }</div>
       </div>
