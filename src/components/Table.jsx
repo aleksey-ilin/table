@@ -1,6 +1,6 @@
 import React from 'react';
-import './Table.css';
 import PropTypes from 'prop-types';
+import styles from './Table.module.css';
 import Task from '../containers/Task';
 
 export default class Table extends React.Component {
@@ -18,17 +18,17 @@ export default class Table extends React.Component {
   render() {
     const { tasks } = this.props;
     return (
-      <div className="table">
-        <div className="thead">
-          <div className="numTask">
-            <button className="newTask" onClick={this.addTask}>+</button>
-            <div className="num">№</div>
+      <div className={styles.table}>
+        <div className={styles.thead}>
+          <div className={styles.numTask}>
+            <button className={styles.newTask} onClick={this.addTask}>+</button>
+            <div className={styles.num}>№</div>
           </div>
-          <div className="task">Tasks</div>
-          <div className="plan">Plan, h</div>
-          <div className="fact">Fact</div>
-          <div className="percent">Done, %</div>
-          <div className="necessary">Necessary, h</div>
+          <div className={styles.task}>Tasks</div>
+          <div className={styles.plan}>Plan, h</div>
+          <div className={styles.fact}>Fact</div>
+          <div className={styles.percent}>Done, %</div>
+          <div className={styles.necessary}>Necessary, h</div>
         </div>
         {tasks.length === 0 ? null : tasks.map(task => <Task task={task} key={task.id}/>)}
       </div>

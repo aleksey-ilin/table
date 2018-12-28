@@ -1,13 +1,18 @@
 import React from 'react';
-import './Task.css';
 import PropTypes from 'prop-types';
-import cn from 'classnames';
+// import cn from 'classnames';
+import classNames from 'classnames/bind';
 import Modal from 'react-bootstrap/lib/Modal';
 import Button from 'react-bootstrap/lib/Button';
 import Timer from 'easytimer.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExpandArrowsAlt } from '@fortawesome/free-solid-svg-icons';
+import styles from './Task.module.css';
 import { getNecessary } from '../utils';
+
+console.log(styles);
+
+const cx = classNames.bind(styles);
 
 export default class Tasks extends React.Component {
   state = { timerButton: 'stop', showError: false, timer: new Timer() };
@@ -72,25 +77,26 @@ export default class Tasks extends React.Component {
       updatePercent,
     } = this.props;
     const { fact, percent } = task;
-    const { timerButton } = this.state;
     const necessary = getNecessary(fact, percent);
-    const timerButtonClass = cn({
-      [`timerButton ${timerButton}`]: true,
+    const timerButtonClass = cx({
+      timerButton: true,
+      [this.state.timerButton]: true,
     });
+    console.log(timerButtonClass);
     return (
-      <div className="item">
+      <div className={styles.item}>
         {this.renderError()}
-        <div className="numTask">
-          <button className="removeTask" onClick={this.removeTask(task.id)}>-</button>
-          <div className="num">{task.id}</div>
+        <div className={styles.numTask}>
+          <button className={styles.removeTask} onClick={this.removeTask(task.id)}>-</button>
+          <div className={styles.num}>{task.id}</div>
         </div>
-        <button className="properties"><FontAwesomeIcon icon={faExpandArrowsAlt} /></button>
-        <input className="task" placeholder="New task" onKeyUp={this.editCell(updateTaskText, 'text', task.id)}></input>
+        <button className={styles.properties}><FontAwesomeIcon icon={faExpandArrowsAlt} /></button>
+        <input className={styles.task} placeholder="New task" onKeyUp={this.editCell(updateTaskText, 'text', task.id)}></input>
         <button className={timerButtonClass} onClick={this.changeTimerState(task.id)}></button>
-        <input className="plan" placeholder="0" type="number" onKeyUp={this.editCell(updatePlan, 'plan', task.id)}></input>
-        <div className="fact">{fact}</div>
-        <input className="percent" placeholder="0" type="number" onKeyUp={this.editCell(updatePercent, 'percent', task.id)}></input>
-        <div className="necessary">{ necessary }</div>
+        <input className={styles.plan} placeholder="0" type="number" onKeyUp={this.editCell(updatePlan, 'plan', task.id)}></input>
+        <div className={styles.fact}>{fact}</div>
+        <input className={styles.percent} placeholder="0" type="number" onKeyUp={this.editCell(updatePercent, 'percent', task.id)}></input>
+        <div className={styles.necessary}>{ necessary }</div>
       </div>
     );
   }

@@ -1,20 +1,16 @@
-.App {
+.app {
   text-align: center;
   height: 100vh;
-}
-
-.App div {
   color: #fff;
+  background-color: #333;
 }
 
 .header {
   height: 10vh;
-  background-color: #333;
 }
 
 .sidebar {
   height: 85vh;
-  background-color: #333;
 }
 
 .content {
@@ -23,5 +19,8 @@
 
 .footer {
   height: 5vh;
-  background-color: #333;
+}
+
+button {
+  cursor: pointer;
 }

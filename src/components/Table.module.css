@@ -15,11 +15,6 @@
 .numTask {
   display: flex;
   width: 5%;
-  margin: 0;
-}
-
-.num {
-  width: 40%;
 }
 
 .newTask {
@@ -28,16 +23,15 @@
   border: none;
   color: inherit;
   background-color: transparent;
-  cursor: pointer;
 }
 
 .newTask, 
 .newTask:active, 
 .newTask:focus {
-    outline: none;
+  outline: none;
 }
 
-.thead > .task {
+.task {
   width: 55%;
 }
 
