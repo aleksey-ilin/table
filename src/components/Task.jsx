@@ -5,10 +5,12 @@ import cn from 'classnames';
 import Modal from 'react-bootstrap/lib/Modal';
 import Button from 'react-bootstrap/lib/Button';
 import Timer from 'easytimer.js';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faExpandArrowsAlt } from '@fortawesome/free-solid-svg-icons';
 import { getNecessary } from '../utils';
 
 export default class Tasks extends React.Component {
-  state = { timerButton: 'stop', showModal: false, timer: new Timer() };
+  state = { timerButton: 'stop', showError: false, timer: new Timer() };
 
   editCell = (fn, property, id) => (e) => {
     fn({ id, [property]: e.target.value });
@@ -40,16 +42,16 @@ export default class Tasks extends React.Component {
       this.setState({ timerButton: 'stop' });
       timer.pause();
     } else {
-      this.setState({ showModal: true });
+      this.setState({ showError: true });
     }
   }
 
-  handleCloseModal = () => this.setState({ showModal: false });
+  handleCloseModal = () => this.setState({ showError: false });
 
-  renderModal() {
-    const { showModal } = this.state;
+  renderError() {
+    const { showError } = this.state;
     return (
-    <Modal show={showModal} onHide={this.handleCloseModal}>
+    <Modal show={showError} onHide={this.handleCloseModal}>
       <Modal.Header>
         <Modal.Title>Another task started</Modal.Title>
       </Modal.Header>
@@ -77,11 +79,12 @@ export default class Tasks extends React.Component {
     });
     return (
       <div className="item">
-        {this.renderModal()}
+        {this.renderError()}
         <div className="numTask">
-          <button className="newTask" onClick={this.removeTask(task.id)}>-</button>
+          <button className="removeTask" onClick={this.removeTask(task.id)}>-</button>
           <div className="num">{task.id}</div>
         </div>
+        <button className="properties"><FontAwesomeIcon icon={faExpandArrowsAlt} /></button>
         <input className="task" placeholder="New task" onKeyUp={this.editCell(updateTaskText, 'text', task.id)}></input>
         <button className={timerButtonClass} onClick={this.changeTimerState(task.id)}></button>
         <input className="plan" placeholder="0" type="number" onKeyUp={this.editCell(updatePlan, 'plan', task.id)}></input>
