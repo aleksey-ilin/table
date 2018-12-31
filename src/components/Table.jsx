@@ -16,6 +16,7 @@ export default class Table extends React.Component {
   }
 
   render() {
+    console.log(this.props);
     const { tasks } = this.props;
     return (
       <div className={styles.table}>
@@ -40,4 +41,5 @@ Table.propTypes = {
   newTaskText: PropTypes.string,
   addTask: PropTypes.func,
   tasks: PropTypes.array,
+  activePropertiesTask: PropTypes.string,
 };

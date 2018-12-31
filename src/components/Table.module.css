@@ -1,20 +1,30 @@
-.thead {
+.table {
+  width: 1200px;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
   display: flex;
+  flex-direction: column;
+  grid-template-columns: 30% 70%;
+  vertical-align: middle;
+}
+
+.thead {
   margin: auto;
   margin-top: 20px;
-  background-color: #333;
+  background-color: #515960;
   color: #fff;
   width: 1200px;
   opacity: 0.9;
-}
-
-.thead > div {
-  border: 1px solid gray;
+  display: flex;
+  border: 1px solid black;
 }
 
 .numTask {
   display: flex;
   width: 5%;
+  padding: 3px;
+  border-right: 1px solid black;
 }
 
 .newTask {
@@ -25,6 +35,10 @@
   background-color: transparent;
 }
 
+.num {
+  width: 50%;
+}
+
 .newTask, 
 .newTask:active, 
 .newTask:focus {
@@ -33,20 +47,29 @@
 
 .task {
   width: 55%;
+  padding: 3px;
+  border-right: 1px solid black;
 }
 
 .plan {
   width: 10%;
+  padding: 3px;
+  border-right: 1px solid black;
 }
 
 .fact {
   width: 10%;
+  padding: 3px;
+  border-right: 1px solid black;
 }
 
 .percent {
   width: 10%;
+  padding: 3px;
+  border-right: 1px solid black;
 }
 
 .necessary {
   width: 10%;
+  padding: 3px;
 }

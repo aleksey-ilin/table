@@ -6,21 +6,26 @@ import styles from './App.module.css';
 import Table from '../containers/Table';
 import Properties from '../containers/Properties';
 
-const App = () => (
+const App = () => {
+  // console.log(this.props);
+  return (
   <div className={styles.app}>
     <Container fluid={true}>
       <Row>
-        <Col lg="12" className={styles.header}>header</Col>
+        <Col lg="12" className={styles.header}></Col>
       </Row>
       <Row>
-        <Col lg="2" className={styles.sidebar}><Properties /></Col>
-        <Col lg="10" className={styles.content}><Table /></Col>
+        <Col lg="12" className={styles.content}>
+          <div className={styles.table}><Table /></div>
+          <div className={styles.properties}><Properties /></div>
+        </Col>
       </Row>
       <Row>
-        <Col className={styles.footer}>footer</Col>
+        <Col className={styles.footer}></Col>
       </Row>
     </Container>
   </div>
-);
+  );
+};
 
 export default App;

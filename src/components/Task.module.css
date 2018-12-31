@@ -9,26 +9,28 @@ input::-webkit-inner-spin-button {
 
 .item {
   display: flex;
-  margin: auto;
-  background-color: #222;
+  background-color: #3a3f44;
   color: #fff;
   width: 1200px;
-  text-align: center;
+  height:30px;
+  line-height:30px;
+  padding: 0;
+  border: 1px solid black;
+  border-top: none;
 }
 
 .item input {
-  background-color: #222;
+  background-color: #3a3f44;
   color: #fff;
-  border: 1px solid gray;
 }
 
 .item input:focus {
   outline: none;
-  background-color: #234;
+  background-color: #272b30;
 }
 
 .item button {
-  text-align: center;
+  padding: 0;
 }
 
 .item button:active,
@@ -39,7 +41,7 @@ input::-webkit-inner-spin-button {
 .numTask {
   display: flex;
   width: 5%;
-  border: 1px solid gray;
+  border-right: inherit;
 }
 
 .num {
@@ -48,33 +50,39 @@ input::-webkit-inner-spin-button {
 
 .removeTask {
   width: 50%;
-  padding: 0;
   border: none;
   color: inherit;
   background-color: transparent;
 }
 
 .properties {
-  width: 2.5%;
-  background-color: #222;
+  width: 3%;
+  background-color: inherit;
   color: LightGray ;
-  border: 1px solid gray;
+  border: inherit;
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
 }
 
 .task {
-  padding-left: 5px;
-  width: 47.5%;
+  padding-left: 10px;
+  width: 47%;
+  border: inherit;
+  border-bottom: none;
+  border-right: none;
 }
 
 .timerButton {
   width: 5%;
-  background-color: #222;
+  background-color: inherit;
   color: #fff;
-  border: 1px solid gray;
+  border: inherit;
+  border-bottom: none;
 }
 
 .stop {
-  background-color: maroon;
+  background-color: #ee5f5b;
   transition-duration: 0.2s;
 }
 
@@ -83,7 +91,7 @@ input::-webkit-inner-spin-button {
 }
 
 .timerButton.start {
-  background-color: seagreen;
+  background-color: #62c462;
   transition-duration: 0.2s;
 }
 
@@ -94,21 +102,27 @@ input::-webkit-inner-spin-button {
 .plan {
   width: 10%;
   text-align: center;
+  border: inherit;
+  border-bottom: none;
+  border-left: none;
 }
 
 .fact {
   width: 10%;
-  border: 1px solid gray;
+  border: inherit;
+  border-bottom: none;
+  border-left: none;
 }
 
 .percent {
   width: 10%;
   text-align: center;
+  border: inherit;
+  border-bottom: none;
+  border-left: none;
 }
 
 .necessary {
   width: 10%;
   color: #fff;
-  border: 1px solid gray;
-  text-align: center;
 }

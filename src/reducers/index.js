@@ -40,7 +40,14 @@ const runingTask = handleActions({
   },
 }, '-1');
 
+const activePropertiesTask = handleActions({
+  [actions.showPropertiesTask](state, { payload: { id } }) {
+    return id;
+  },
+}, '-1');
+
 export default combineReducers({
   tasks,
   runingTask,
+  activePropertiesTask,
 });

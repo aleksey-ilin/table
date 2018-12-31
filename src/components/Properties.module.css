@@ -1,3 +1,24 @@
-.button {
-  border: 5px solid greenyellow;
+.properties {
+  background-color: #3a3f44;
+  height: 100vh;
+  border-left: 1px solid black;
+
+}
+
+.properties > div {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.properties > textarea {
+  background-color: #515960;
+  color: white;
+  border: 1px solid black;
+  padding: 10px;
+  resize: none;
+}
+
+.properties > textarea:focus {
+  outline: none;
+  background-color: #272b30;
 }

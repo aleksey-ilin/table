@@ -2,19 +2,27 @@
   text-align: center;
   height: 100vh;
   color: #fff;
-  background-color: #333;
+  background-color: #272b30;
+  padding: 0;
 }
 
 .header {
   height: 10vh;
 }
 
-.sidebar {
+.content {
   height: 85vh;
+  display: flex;
+  justify-content: center;
 }
 
-.content {
-  background-color: gray;
+.properties {
+  width: 300px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: auto;
 }
 
 .footer {
