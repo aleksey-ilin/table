@@ -10,4 +10,5 @@ export const updatePercent = createAction('TASK_PERCENT_UPDATE');
 export const removeTask = createAction('TASK_REMOVE');
 export const toggleTaskState = createAction('TASK_STATE_TOGGLE');
 export const updateRunnigTask = createAction('TASK_RUNING_UPDATE');
-export const showPropertiesTask = createAction('TASK_PROPERTIES_SHOW');
+export const changeActiveProperties = createAction('PROPERTIES_ACTIVE_CHANGE');
+export const changeDescription = createAction('DESCRIPTION_CHANGE');

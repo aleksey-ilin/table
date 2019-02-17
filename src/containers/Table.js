@@ -7,7 +7,7 @@ const Container = connect(
   (state) => {
     const props = {
       tasks: tasksSelector(state),
-      activePropertiesTask: state.activePropertiesTask,
+      activeProperties: state.activeProperties,
     };
     return props;
   },

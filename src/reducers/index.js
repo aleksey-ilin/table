@@ -32,6 +32,10 @@ const tasks = handleActions({
     const task = state[id];
     return { ...state, [task.id]: { ...task, percent } };
   },
+  [actions.changeDescription](state, { payload: { id, description } }) {
+    const task = state[id];
+    return { ...state, [task.id]: { ...task, description } };
+  },
 }, {});
 
 const runingTask = handleActions({
@@ -40,14 +44,14 @@ const runingTask = handleActions({
   },
 }, '-1');
 
-const activePropertiesTask = handleActions({
-  [actions.showPropertiesTask](state, { payload: { id } }) {
-    return id;
+const activeProperties = handleActions({
+  [actions.changeActiveProperties](state, { payload }) {
+    return payload;
   },
 }, '-1');
 
 export default combineReducers({
   tasks,
   runingTask,
-  activePropertiesTask,
+  activeProperties,
 });

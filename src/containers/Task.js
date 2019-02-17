@@ -8,7 +8,7 @@ const Container = connect(
     const props = {
       tasks: tasksSelector(state),
       runingTask: state.runingTask,
-      activePropertiesTask: state.activePropertiesTask,
+      activeProperties: state.activeProperties,
     };
     return props;
   },

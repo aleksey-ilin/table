@@ -50,15 +50,7 @@ export default class Tasks extends React.Component {
 
   handleCloseModal = () => this.setState({ showError: false });
 
-  showProperties = id => () => {
-    const { showPropertiesTask, activePropertiesTask } = this.props;
-    console.log(activePropertiesTask);
-    if (activePropertiesTask === '-1') {
-      showPropertiesTask({ id });
-    } else {
-      showPropertiesTask({ id: '-1' });
-    }
-  }
+  showProperties = id => () => this.props.changeActiveProperties(id);
 
   renderError() {
     const { showError } = this.state;
@@ -119,5 +111,6 @@ Tasks.propTypes = {
   updatePercent: PropTypes.func,
   runingTask: PropTypes.string,
   updateRunnigTask: PropTypes.func,
-  showPropertiesTask: PropTypes.func,
+  changeActiveProperties: PropTypes.func,
+  activeProperties: PropTypes.string,
 };

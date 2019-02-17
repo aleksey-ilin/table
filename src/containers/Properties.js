@@ -5,7 +5,8 @@ import * as actionCreators from '../actions';
 const Container = connect(
   (state) => {
     const props = {
-      activePropertiesTask: state.activePropertiesTask,
+      tasks: state.tasks,
+      activeProperties: state.activeProperties,
     };
     return props;
   },

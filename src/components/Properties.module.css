@@ -1,24 +1,27 @@
 .properties {
-  background-color: #3a3f44;
+  background-color: #515960;
   height: 100vh;
   border-left: 1px solid black;
-
 }
 
-.properties > div {
+.properties > p {
   padding-top: 10px;
   padding-bottom: 10px;
+  margin: 0;
 }
 
 .properties > textarea {
-  background-color: #515960;
+  background-color: #272b30;
   color: white;
   border: 1px solid black;
   padding: 10px;
   resize: none;
 }
 
-.properties > textarea:focus {
-  outline: none;
-  background-color: #272b30;
+textarea::-webkit-input-placeholder {
+  color: #c4c4c4;
+}
+
+textarea::-moz-placeholder {
+  color: #c4c4c4;  
 }

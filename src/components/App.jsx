@@ -6,9 +6,7 @@ import styles from './App.module.css';
 import Table from '../containers/Table';
 import Properties from '../containers/Properties';
 
-const App = () => {
-  // console.log(this.props);
-  return (
+const App = () => (
   <div className={styles.app}>
     <Container fluid={true}>
       <Row>
@@ -25,7 +23,6 @@ const App = () => {
       </Row>
     </Container>
   </div>
-  );
-};
+);
 
 export default App;

@@ -24,6 +24,14 @@ input::-webkit-inner-spin-button {
   color: #fff;
 }
 
+.item input::-webkit-input-placeholder {
+  color: #c4c4c4;
+}
+  
+.item input::-moz-placeholder {
+  color: #c4c4c4;  
+}
+
 .item input:focus {
   outline: none;
   background-color: #272b30;

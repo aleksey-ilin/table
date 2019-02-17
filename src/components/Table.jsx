@@ -12,11 +12,12 @@ export default class Table extends React.Component {
       plan: '',
       fact: '',
       percent: '',
+      description: '',
     });
   }
 
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     const { tasks } = this.props;
     return (
       <div className={styles.table}>
