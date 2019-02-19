@@ -1,21 +1,55 @@
-.properties {
-  background-color: #515960;
+.root {
+  display: flex;
+  flex-direction: column;
+  background-color: #3a3f44;
   height: 100vh;
   border-left: 1px solid black;
 }
 
-.properties > p {
-  padding-top: 10px;
+.header {
+  align-self: flex-end;
+  height: 30px;
+  padding: 5px;
+}
+
+.close {
+  margin-right: 10px;
+  padding: 0;
+  color: #fff;
+  width: 3%;
+  background-color: inherit;
+  color: LightGray;
+  border: inherit;
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+}
+
+.close:active,
+.close:focus {
+  outline: none;
+}
+
+.root > p {
   padding-bottom: 10px;
   margin: 0;
 }
 
-.properties > textarea {
-  background-color: #272b30;
+.root > textarea {
+  background-color: #3a3f44;
   color: white;
-  border: 1px solid black;
+  border: none;
   padding: 10px;
   resize: none;
+}
+
+.root > textarea:focus {
+  background-color: #272b30;
+}
+
+.root > textarea:active,
+.root > textarea:focus {
+  outline: none;
 }
 
 textarea::-webkit-input-placeholder {
