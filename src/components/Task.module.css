@@ -7,7 +7,7 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
 
-.item {
+.root {
   display: flex;
   background-color: #3a3f44;
   color: #fff;
@@ -19,30 +19,30 @@ input::-webkit-inner-spin-button {
   border-top: none;
 }
 
-.item input {
+input {
   background-color: #3a3f44;
   color: #fff;
 }
 
-.item input::-webkit-input-placeholder {
+input::-webkit-input-placeholder {
   color: #c4c4c4;
 }
-  
-.item input::-moz-placeholder {
+
+input::-moz-placeholder {
   color: #c4c4c4;  
 }
 
-.item input:focus {
+input:focus {
   outline: none;
   background-color: #272b30;
 }
 
-.item button {
+button {
   padding: 0;
 }
 
-.item button:active,
-.item button:focus {
+button:active,
+button:focus {
   outline: none;
 }
 
@@ -79,6 +79,11 @@ input::-webkit-inner-spin-button {
   border: inherit;
   border-bottom: none;
   border-right: none;
+}
+
+.finished {
+  color: grey;
+  text-decoration: line-through;
 }
 
 .timerButton {

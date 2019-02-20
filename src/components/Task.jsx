@@ -81,8 +81,13 @@ export default class Tasks extends React.Component {
       timerButton: true,
       [this.state.timerButton]: true,
     });
+    console.log(percent);
+    const taskClass = cx({
+      task: true,
+      finished: percent >= 100,
+    });
     return (
-      <div className={styles.item}>
+      <div className={styles.root}>
         {this.renderError()}
         <div className={styles.numTask}>
           <button className={styles.removeTask} onClick={this.removeTask(task.id)}>-</button>
@@ -91,7 +96,7 @@ export default class Tasks extends React.Component {
         <button className={styles.properties} onClick={this.showProperties(task.id)}>
           <FontAwesomeIcon icon={faExpandArrowsAlt} />
         </button>
-        <input className={styles.task} placeholder="New task" onKeyUp={this.editCell(updateTaskText, 'text', task.id)}></input>
+        <input className={taskClass} placeholder="New task" onKeyUp={this.editCell(updateTaskText, 'text', task.id)}></input>
         <button className={timerButtonClass} onClick={this.changeTimerState(task.id)}></button>
         <input className={styles.plan} placeholder="0" type="number" onKeyUp={this.editCell(updatePlan, 'plan', task.id)}></input>
         <div className={styles.fact}>{fact}</div>
