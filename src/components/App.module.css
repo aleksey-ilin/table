@@ -10,7 +10,64 @@
 }
 
 .header {
-  height: 10vh;
+  height: 30px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+}
+
+.header_left {
+  height: 30px;
+  display: flex;
+  justify-content: flex-start;
+  padding: 0;
+}
+
+.home {
+  height: 30px;
+  margin-left: 15px;
+}
+
+.projects,
+.analytics {
+  height: 30px;
+  line-height: 30px;
+  margin-left: 15px;
+}
+
+.header_right {
+  height: 30px;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0;
+}
+
+.search {
+  margin-right: 15px;
+  opacity: 0.7;
+  border: 1px solid black;
+  padding-left: 10px;
+}
+
+.search:focus {
+  opacity: 1;
+}
+
+.time {
+  height: 30px;
+  font-size: 20px;
+  line-height: 30px;
+  margin-right: 15px;
+}
+
+.bell {
+  height: 30px;
+  margin-right: 15px;
+}
+
+.user {
+  height: 30px;
+  margin-right: 15px;
 }
 
 .content {
@@ -23,7 +80,7 @@
   width: 300px;
   height: 100vh;
   position: fixed;
-  top: 0;
+  top: 30px;
   right: 0;
   left: auto;
 }
@@ -33,5 +90,14 @@
 }
 
 button {
+  background-color: inherit;
+  border: inherit;
   cursor: pointer;
+  padding: 0;
+  color: #fff;
+}
+
+button:active,
+button:focus {
+  outline: none;
 }

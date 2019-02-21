@@ -81,7 +81,6 @@ export default class Tasks extends React.Component {
       timerButton: true,
       [this.state.timerButton]: true,
     });
-    console.log(percent);
     const taskClass = cx({
       task: true,
       finished: percent >= 100,

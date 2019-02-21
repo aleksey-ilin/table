@@ -21,6 +21,7 @@ export default class Table extends React.Component {
     const { tasks } = this.props;
     return (
       <div className={styles.table}>
+        <div className={styles.project}>Project 1</div>
         <div className={styles.thead}>
           <div className={styles.numTask}>
             <button className={styles.newTask} onClick={this.addTask}>+</button>
