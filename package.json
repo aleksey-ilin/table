@@ -39,6 +39,7 @@
   ],
   "devDependencies": {
     "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-react": "^7.11.1"
+    "eslint-plugin-react": "^7.11.1",
+    "node-sass": "^4.11.0"
   }
 }

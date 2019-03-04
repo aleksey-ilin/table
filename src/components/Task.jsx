@@ -5,8 +5,8 @@ import Modal from 'react-bootstrap/lib/Modal';
 import Button from 'react-bootstrap/lib/Button';
 import Timer from 'easytimer.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faExpandArrowsAlt } from '@fortawesome/free-solid-svg-icons';
-import styles from './Task.module.css';
+import { faExpandArrowsAlt, faFolder } from '@fortawesome/free-solid-svg-icons';
+import styles from './Task.module.scss';
 import { getNecessary } from '../utils';
 
 const cx = classNames.bind(styles);
@@ -52,6 +52,13 @@ export default class Tasks extends React.Component {
 
   showProperties = id => () => this.props.changeActiveProperties(id);
 
+  addProject = id => () => {
+    console.log(id);
+    return (
+      <button><FontAwesomeIcon icon={faFolder} /></button>
+    );
+  };
+
   renderError() {
     const { showError } = this.state;
     return (
@@ -94,6 +101,9 @@ export default class Tasks extends React.Component {
         </div>
         <button className={styles.properties} onClick={this.showProperties(task.id)}>
           <FontAwesomeIcon icon={faExpandArrowsAlt} />
+        </button>
+        <button className={styles.project} onClick={this.addProject(task.id)}>
+          <FontAwesomeIcon icon={faFolder} />
         </button>
         <input className={taskClass} placeholder="New task" onKeyUp={this.editCell(updateTaskText, 'text', task.id)}></input>
         <button className={timerButtonClass} onClick={this.changeTimerState(task.id)}></button>

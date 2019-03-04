@@ -70,12 +70,22 @@ button:focus {
   border: inherit;
   border-bottom: none;
   border-left: none;
+  border-right: inherit;
+}
+
+.project {
+  width: 3%;
+  background-color: inherit;
+  color: LightGray;
+  border: inherit;
+  border-bottom: none;
+  border-left: none;
   border-right: none;
 }
 
 .task {
   padding-left: 10px;
-  width: 47%;
+  width: 44%;
   border: inherit;
   border-bottom: none;
   border-right: none;

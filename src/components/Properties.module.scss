@@ -1,0 +1,90 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  background-color: #3a3f44;
+  height: 100vh;
+  border-left: 1px solid black;
+}
+
+.header {
+  align-self: flex-end;
+  height: 30px;
+  padding: 5px;
+  .close {
+    margin-right: 10px;
+    padding: 0;
+    color: #fff;
+    width: 3%;
+    background-color: inherit;
+    color: LightGray;
+    border: inherit;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    &:active,
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.project {
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  &_title {
+    display: flex;
+    line-height: 30px;
+    margin-left: 10px;
+    &_icon {
+      height: 30px;
+    }
+    &_name {
+      margin: 0;
+      height: 30px;
+      margin-left: 10px;
+      font-size: 12px;
+      color: #5bc0de;
+    }
+  }
+  &_button {
+    text-align: left;
+    margin-left: 10px;
+  }
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  &_title {
+    display: flex;
+    line-height: 30px;
+    margin-left: 10px;
+    &_icon {
+      height: 30px;
+    }
+    &_name {
+      margin: 0;
+      height: 30px;
+      margin-left: 10px;
+      padding-bottom: 10px;
+      font-size: 12px;
+      color: #5bc0de;
+    }
+  }
+  &_field {
+    background-color: #3a3f44;
+    color: white;
+    border: none;
+    padding: 10px;
+    padding-top: 0px;
+    resize: none;
+    &:focus {
+      background-color: #272b30;
+      outline: none;
+    }
+    &:active {
+      outline: none;
+    }
+  }
+}

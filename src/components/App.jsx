@@ -31,7 +31,6 @@ export default class App extends React.Component {
             <Col lg="12" className={styles.header}>
               <div className={styles.header_left}>
                 <button className={styles.home}><FontAwesomeIcon icon={faHome} /></button>
-                <button className={styles.projects}>Projects</button>
                 <button className={styles.analytics}>Analytics</button>
               </div>
               <div className={styles.header_right}>
